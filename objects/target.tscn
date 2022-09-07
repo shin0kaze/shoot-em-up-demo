@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dckbaeix1lxnu"]
+
+[ext_resource type="Texture2D" uid="uid://byfe1gky74tmr" path="res://yellow.png" id="1_bghp4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gmhh"]
+size = Vector2(40, 40)
+
+[node name="Target" type="StaticBody2D" groups=["attackable"]]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.792157, 0.360784, 0, 1)
+scale = Vector2(40, 40)
+texture = ExtResource("1_bghp4")
+
+[node name="Collision" type="CollisionShape2D" parent="." groups=["attackable"]]
+shape = SubResource("RectangleShape2D_2gmhh")
