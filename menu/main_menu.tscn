@@ -1,7 +1,82 @@
-[gd_scene format=3 uid="uid://dc72e2mti2f0"]
+[gd_scene load_steps=2 format=3 uid="uid://dc72e2mti2f0"]
 
-[node name="Menu" type="Control"]
+[ext_resource type="Script" path="res://menu/main_menu.gd" id="1_6xhje"]
+
+[node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource("1_6xhje")
+
+[node name="Bg" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.2, 0.266667, 1)
+
+[node name="Valign" type="VBoxContainer" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Empty" type="Control" parent="Valign"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 306.0
+offset_bottom = 80.0
+
+[node name="Label" type="Label" parent="Valign"]
+offset_top = 95.0
+offset_right = 306.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 30
+text = "Very awesome gaym!"
+
+[node name="Empty2" type="Control" parent="Valign"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 155.0
+offset_right = 306.0
+offset_bottom = 205.0
+
+[node name="NewGame" type="Button" parent="Valign"]
+offset_top = 220.0
+offset_right = 306.0
+offset_bottom = 262.0
+theme_override_font_sizes/font_size = 24
+text = "New Game"
+
+[node name="Load" type="Button" parent="Valign"]
+offset_top = 277.0
+offset_right = 306.0
+offset_bottom = 319.0
+theme_override_font_sizes/font_size = 24
+text = "Load"
+
+[node name="Settigns" type="Button" parent="Valign"]
+offset_top = 334.0
+offset_right = 306.0
+offset_bottom = 376.0
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+
+[node name="Exit" type="Button" parent="Valign"]
+offset_top = 391.0
+offset_right = 306.0
+offset_bottom = 433.0
+theme_override_font_sizes/font_size = 24
+text = "Exit"
+
+[connection signal="pressed" from="Valign/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Valign/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Valign/Settigns" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Valign/Exit" to="." method="_on_exit_pressed"]

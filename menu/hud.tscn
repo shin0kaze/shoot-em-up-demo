@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh3oej3udy63"]
+
+[ext_resource type="Script" path="res://menu/hud.gd" id="1_j5kuv"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_j5kuv")
+HealthValuePath = NodePath("HBoxContainer/HealthValue")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HealthText" type="Label" parent="HBoxContainer"]
+offset_right = 112.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 30
+text = "Health: "
+
+[node name="HealthValue" type="Label" parent="HBoxContainer"]
+offset_left = 116.0
+offset_right = 167.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 30
+text = "100"

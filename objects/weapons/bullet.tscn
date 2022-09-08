@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcoca2v0151gw"]
+[gd_scene load_steps=4 format=3 uid="uid://dq73ihp417a8i"]
 
-[ext_resource type="Script" path="res://objects/bullet.gd" id="1_2io45"]
-[ext_resource type="Texture2D" uid="uid://byfe1gky74tmr" path="res://yellow.png" id="1_i16bf"]
+[ext_resource type="Script" path="res://objects/weapons/bullet.gd" id="1_2io45"]
+[ext_resource type="Texture2D" uid="uid://b2nw204b6fajg" path="res://assets/pixel.png" id="2_2x3e2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_524it"]
 size = Vector2(8, 4)
@@ -10,8 +10,9 @@ size = Vector2(8, 4)
 script = ExtResource("1_2io45")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 0, 1)
 scale = Vector2(8, 4)
-texture = ExtResource("1_i16bf")
+texture = ExtResource("2_2x3e2")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_524it")

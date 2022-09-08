@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://46wlscaan4km"]
+
+[ext_resource type="Texture2D" uid="uid://b2nw204b6fajg" path="res://assets/pixel.png" id="1_t00f3"]
+
+[node name="ShotGun" type="Node2D"]
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+modulate = Color(0.196078, 0.129412, 0.0509804, 1)
+position = Vector2(18, 0)
+scale = Vector2(24, 8)
+texture = ExtResource("1_t00f3")
+offset = Vector2(0.5, 0)
+
+[node name="Muzzle" type="Node2D" parent="Sprite2d"]
+position = Vector2(0.5, 0)

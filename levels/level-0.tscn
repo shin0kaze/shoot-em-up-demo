@@ -1,16 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1k170ixe2t74"]
+[gd_scene load_steps=7 format=3 uid="uid://cu48tv0rp82ix"]
 
-[ext_resource type="Texture2D" uid="uid://capkg82nfhxda" path="res://green.png" id="1_l4tpa"]
 [ext_resource type="PackedScene" uid="uid://dfn36tcfkxclb" path="res://objects/wall.tscn" id="2_has37"]
 [ext_resource type="PackedScene" uid="uid://divfccn5m4tfl" path="res://objects/player.tscn" id="3_3epx3"]
 [ext_resource type="PackedScene" uid="uid://dckbaeix1lxnu" path="res://objects/target.tscn" id="4_78a0n"]
+[ext_resource type="PackedScene" uid="uid://cyqg3t5ystbbf" path="res://objects/enemies/damage_area.tscn" id="5_hn7k4"]
+[ext_resource type="PackedScene" uid="uid://cagf3j2kp6wjk" path="res://objects/enemies/projectiler.tscn" id="6_tn0vq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ngtc6"]
+load_path = "res://.godot/imported/green.png-5db815cc8219d4fb24db6968e2796f87.ctex"
 
 [node name="Level" type="Node2D"]
+
+[node name="ParallaxBg" type="CanvasLayer" parent="."]
 
 [node name="Floor" type="Sprite2D" parent="."]
 position = Vector2(594, 397.5)
 scale = Vector2(1574, 1055)
-texture = ExtResource("1_l4tpa")
+texture = SubResource("CompressedTexture2D_ngtc6")
 
 [node name="Wall" parent="." instance=ExtResource("2_has37")]
 position = Vector2(-198, 388)
@@ -39,3 +45,9 @@ metadata/_edit_group_ = true
 
 [node name="Target" parent="." instance=ExtResource("4_78a0n")]
 position = Vector2(754, 113)
+
+[node name="DamageArea" parent="." instance=ExtResource("5_hn7k4")]
+position = Vector2(435, 496)
+
+[node name="Projectiler" parent="." instance=ExtResource("6_tn0vq")]
+position = Vector2(563, -4)

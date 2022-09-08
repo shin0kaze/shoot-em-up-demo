@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg538mle1xwdr"]
+
+[ext_resource type="Texture2D" uid="uid://b2nw204b6fajg" path="res://assets/pixel.png" id="1_t00f3"]
+[ext_resource type="Script" path="res://objects/weapons/machine_gun.gd" id="1_wt3dr"]
+
+[node name="MachineGun" type="Node2D"]
+script = ExtResource("1_wt3dr")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(20, 0)
+scale = Vector2(20, 5)
+texture = ExtResource("1_t00f3")
+offset = Vector2(0.5, 0)
+
+[node name="Muzzle" type="Node2D" parent="Sprite2d"]
+position = Vector2(0.5, 0)

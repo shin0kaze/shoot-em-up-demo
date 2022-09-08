@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfgbroue0ojhv"]
+
+[ext_resource type="Script" path="res://menu/pause_menu.gd" id="1_hfljf"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 100
+script = ExtResource("1_hfljf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.160784)
+
+[node name="Valign" type="VBoxContainer" parent="ColorRect"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Empty" type="Control" parent="ColorRect/Valign"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 199.0
+offset_bottom = 80.0
+
+[node name="GameState" type="Label" parent="ColorRect/Valign"]
+offset_top = 95.0
+offset_right = 199.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 30
+text = "Game paused"
+
+[node name="Empty2" type="Control" parent="ColorRect/Valign"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 155.0
+offset_right = 199.0
+offset_bottom = 205.0
+
+[node name="Continue" type="Button" parent="ColorRect/Valign"]
+offset_top = 220.0
+offset_right = 199.0
+offset_bottom = 262.0
+theme_override_font_sizes/font_size = 24
+text = "Continue"
+
+[node name="Checkpoint" type="Button" parent="ColorRect/Valign"]
+offset_top = 277.0
+offset_right = 199.0
+offset_bottom = 319.0
+theme_override_font_sizes/font_size = 24
+text = "Checkpoint"
+
+[node name="Settings" type="Button" parent="ColorRect/Valign"]
+offset_top = 334.0
+offset_right = 199.0
+offset_bottom = 376.0
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+
+[node name="MainMenu" type="Button" parent="ColorRect/Valign"]
+offset_top = 391.0
+offset_right = 199.0
+offset_bottom = 433.0
+theme_override_font_sizes/font_size = 24
+text = "MainMenu"
+
+[connection signal="pressed" from="ColorRect/Valign/Continue" to="." method="_on_continue_pressed"]

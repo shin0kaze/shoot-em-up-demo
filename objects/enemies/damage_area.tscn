@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyqg3t5ystbbf"]
+
+[ext_resource type="Script" path="res://objects/enemies/damage_area.gd" id="1_4s465"]
+[ext_resource type="Texture2D" uid="uid://b2nw204b6fajg" path="res://assets/pixel.png" id="2_nee1f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v77b5"]
+size = Vector2(100, 100)
+
+[node name="DamageArea" type="Area2D"]
+script = ExtResource("1_4s465")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.439216, 1, 0.666667)
+scale = Vector2(100, 100)
+texture = ExtResource("2_nee1f")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v77b5")
+
+[connection signal="body_entered" from="." to="." method="_on_damage_area_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_damage_area_body_exited"]

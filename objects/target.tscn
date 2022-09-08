@@ -1,16 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dckbaeix1lxnu"]
+[gd_scene load_steps=5 format=3 uid="uid://dckbaeix1lxnu"]
 
-[ext_resource type="Texture2D" uid="uid://byfe1gky74tmr" path="res://yellow.png" id="1_bghp4"]
+[ext_resource type="Script" path="res://objects/entity.gd" id="1_ubcij"]
+[ext_resource type="Texture2D" uid="uid://b2nw204b6fajg" path="res://assets/pixel.png" id="2_fbuwc"]
+[ext_resource type="Script" path="res://components/health.gd" id="3_35wfj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gmhh"]
 size = Vector2(40, 40)
 
-[node name="Target" type="StaticBody2D" groups=["attackable"]]
+[node name="Target" type="StaticBody2D"]
+script = ExtResource("1_ubcij")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.792157, 0.360784, 0, 1)
 scale = Vector2(40, 40)
-texture = ExtResource("1_bghp4")
+texture = ExtResource("2_fbuwc")
 
-[node name="Collision" type="CollisionShape2D" parent="." groups=["attackable"]]
+[node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2gmhh")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_35wfj")

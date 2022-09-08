@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3rvl1arslxbu"]
+
+[ext_resource type="Texture2D" uid="uid://b2nw204b6fajg" path="res://assets/pixel.png" id="1_77qvw"]
+[ext_resource type="Script" path="res://objects/enemies/enemy_bullet.gd" id="1_xjrak"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v46iq"]
+
+[node name="EnemyBullet" type="Area2D" groups=["enemy_bullet"]]
+script = ExtResource("1_xjrak")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+scale = Vector2(14, 14)
+texture = ExtResource("1_77qvw")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v46iq")
+
+[connection signal="body_entered" from="." to="." method="_on_enemy_bullet_body_entered"]
