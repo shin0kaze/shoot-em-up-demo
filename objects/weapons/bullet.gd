@@ -13,9 +13,11 @@ func _physics_process(delta: float):
 	if lifetime < 0:
 		queue_free()
 
-
 func _on_bullet_body_entered(body):
-	if body.is_in_group('attackable'):
-		print('punch')
-		body.stats['health'].apply_damage(damage)
+	if body.is_in_group('projectile_bound'):
+		queue_free()
+		return
+	
+	
+	body.stats['health'].apply_damage(damage)
 	queue_free()

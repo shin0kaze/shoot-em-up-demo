@@ -17,6 +17,5 @@ func _physics_process(delta: float):
 		queue_free()
 
 func _on_enemy_bullet_body_entered(body):
-	if body.is_in_group('player'):
-		body.stats['health'].apply_damage(self.damage)
+	body.stats['health'].apply_damage(self.damage)
 	queue_free()

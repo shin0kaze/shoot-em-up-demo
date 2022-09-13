@@ -1,45 +1,56 @@
-[gd_scene load_steps=9 format=3 uid="uid://divfccn5m4tfl"]
+[gd_scene load_steps=10 format=3 uid="uid://divfccn5m4tfl"]
 
-[ext_resource type="Script" path="res://objects/player.gd" id="1_mddon"]
-[ext_resource type="Texture2D" uid="uid://cmta4pinfaasp" path="res://icon.svg" id="1_mlfob"]
-[ext_resource type="PackedScene" uid="uid://bh3oej3udy63" path="res://menu/hud.tscn" id="3_bigpy"]
-[ext_resource type="PackedScene" uid="uid://cfgbroue0ojhv" path="res://menu/pause_menu.tscn" id="4_8usvm"]
+[ext_resource type="Script" path="res://components/lives.gd" id="1_kjwom"]
+[ext_resource type="Script" path="res://objects/player.gd" id="1_osrhd"]
+[ext_resource type="Script" path="res://components/healthIFrame.gd" id="2_lsv7a"]
+[ext_resource type="Texture2D" uid="uid://d37te5j3vpi0l" path="res://assets/img/spacecraft.png" id="4_6cyd7"]
 [ext_resource type="PackedScene" uid="uid://cg538mle1xwdr" path="res://objects/weapons/machine_gun.tscn" id="5_xshqp"]
 [ext_resource type="PackedScene" uid="uid://bml1ehf3sy8fp" path="res://objects/skills/clear_bomb.tscn" id="6_rlwg8"]
-[ext_resource type="Script" path="res://components/healthIFrame.gd" id="7_cglm4"]
+[ext_resource type="Texture2D" uid="uid://bcxwgqia5ugv" path="res://assets/svg/circle.svg" id="7_6l28h"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4bm2"]
-size = Vector2(5, 5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_au2p2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mqc4s"]
+radius = 40.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-script = ExtResource("1_mddon")
+collision_mask = 64
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_floor_layers = 4294967040
+script = ExtResource("1_osrhd")
+
+[node name="HealthIFrame" type="Node" parent="."]
+script = ExtResource("2_lsv7a")
+
+[node name="Lives" type="Node" parent="."]
+script = ExtResource("1_kjwom")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_mlfob")
+rotation = 1.5708
+texture = ExtResource("4_6cyd7")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
-scale = Vector2(8, 8)
-shape = SubResource("RectangleShape2D_r4bm2")
+[node name="BoundCollision" type="CollisionShape2D" parent="." groups=["player"]]
+shape = SubResource("CircleShape2D_au2p2")
 
 [node name="Muzzle" type="Node2D" parent="."]
 position = Vector2(42, 0)
-
-[node name="Camera2d" type="Camera2D" parent="."]
-current = true
-limit_smoothed = true
-drag_horizontal_offset = 0.3
-drag_vertical_offset = 0.3
-
-[node name="Hud" parent="." instance=ExtResource("3_bigpy")]
-
-[node name="PauseMenu" parent="." instance=ExtResource("4_8usvm")]
-visible = false
 
 [node name="MachineGun" parent="." instance=ExtResource("5_xshqp")]
 
 [node name="ClearBomb" parent="." instance=ExtResource("6_rlwg8")]
 visible = false
+collision_layer = 0
+collision_mask = 8
 
-[node name="HealthIFrame" type="Node" parent="."]
-script = ExtResource("7_cglm4")
+[node name="ItemMagnet" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="Collision" type="CollisionShape2D" parent="ItemMagnet"]
+shape = SubResource("CircleShape2D_mqc4s")
+
+[node name="HitBox" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_6l28h")

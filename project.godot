@@ -14,20 +14,26 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://components/component.gd"
 }, {
-"base": "Node",
+"base": "Component",
 "class": &"Health",
 "language": &"GDScript",
 "path": "res://components/health.gd"
 }, {
-"base": "Node",
+"base": "Component",
 "class": &"HealthIFrame",
 "language": &"GDScript",
 "path": "res://components/healthIFrame.gd"
+}, {
+"base": "Component",
+"class": &"Lives",
+"language": &"GDScript",
+"path": "res://components/lives.gd"
 }]
 _global_script_class_icons={
 "Component": "",
 "Health": "res://assets/icons/health_ico.png",
-"HealthIFrame": "res://assets/icons/health_ico.png"
+"HealthIFrame": "res://assets/icons/health_ico.png",
+"Lives": "res://assets/icons/health_ico.png"
 }
 
 [application]
@@ -112,6 +118,18 @@ game_use_skill={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="player_bullets"
+2d_physics/layer_3="enemies"
+2d_physics/layer_4="enemies_bullets"
+2d_physics/layer_5="bullets_obstacles"
+2d_physics/layer_6="bonuses"
+2d_physics/layer_7="player_bound"
+2d_physics/layer_8="physics_objects"
+
 [rendering]
 
 vulkan/rendering/back_end=1
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

@@ -3,6 +3,6 @@ extends Node
 
 const stats = {}
 
-func die():
-	print('I\'m dyin\'!')
+func on_0_health():
+	print('die')
 	queue_free()

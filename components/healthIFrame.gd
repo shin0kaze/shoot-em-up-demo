@@ -1,12 +1,14 @@
-extends 'res://components/component.gd'
+extends Component
+
 
 class_name HealthIFrame, 'res://assets/icons/health_ico.png'
 
-
 signal health_changed
-@export var health = 4
+@export var init_health = 6
 @export var frame_duration = 1.
+var health = init_health
 var previous_time = .0
+
 
 func _init():
 	stats_name = 'health'
@@ -20,12 +22,11 @@ func apply_damage(damage = 0):
 	self.health -= damage
 	emit_signal('health_changed', self.health)
 	if health <= 0:
-		self.entity.die()
-		
-#func shoot():
-#	if get_time() - fire_time < 0.3:
-#		return
-#	fire_time = get_time()
-#	var bullet = Bullet.instantiate()
-#	bullet.transform = $Muzzle.global_transform
-#	get_tree().get_root().call_deferred('add_child', bullet)
+		self.entity.on_0_health()
+
+func current():
+	return self.health
+
+func restore():
+	self.health = self.init_health
+	emit_signal('health_changed', self.health)

@@ -1,21 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc72e2mti2f0"]
+[gd_scene load_steps=3 format=3 uid="uid://dc72e2mti2f0"]
 
 [ext_resource type="Script" path="res://menu/main_menu.gd" id="1_6xhje"]
+[ext_resource type="Texture2D" uid="uid://c33p8pov21mdb" path="res://assets/img/fantasy_landscape.png" id="2_fqsgq"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_6xhje")
 
-[node name="Bg" type="ColorRect" parent="."]
+[node name="Bg" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.192157, 0.2, 0.266667, 1)
+texture = ExtResource("2_fqsgq")
 
 [node name="Valign" type="VBoxContainer" parent="."]
 anchors_preset = 13
